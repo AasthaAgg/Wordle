@@ -8,45 +8,98 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>WORDLE</h1>
 
+    <!-- ===== HEADER ===== -->
+
+    <header>
+        <h1>WORDLE</h1>
+        <button class="help-btn" type="submit">?</button>
+    </header>
+
+
+    <!-- ===== INPUT - AREA ===== -->
+    
     <div class="input-area">
-        
+        <form action="processInput()" method="get">
+            <input class="input-char first" type="text" maxlength="1" onkeyup="movetoNext(this,'second')">
+            <input class="input-char second" type="text" maxlength="1" onkeyup="movetoNext(this,'third')">
+            <input class="input-char third" type="text" maxlength="1" onkeyup="movetoNext(this,'fourth')">
+            <input class="input-char fourth" type="text" maxlength="1" onkeyup="movetoNext(this,'fifth')">
+            <input class="input-char fifth" type="text" maxlength="1" onkeyup="submit()">
+        </form>
+        <form action="processInput()" method="get">
+            <input class="input-char first" type="text" maxlength="1" onkeyup="movetoNext(this,'second')">
+            <input class="input-char second" type="text" maxlength="1" onkeyup="movetoNext(this,'third')">
+            <input class="input-char third" type="text" maxlength="1" onkeyup="movetoNext(this,'fourth')">
+            <input class="input-char fourth" type="text" maxlength="1" onkeyup="movetoNext(this,'fifth')">
+            <input class="input-char fifth" type="text" maxlength="1" onkeyup="submit()">
+        </form>
+        <form action="processInput()" method="get">
+            <input class="input-char first" type="text" maxlength="1" onkeyup="movetoNext(this,'second')">
+            <input class="input-char second" type="text" maxlength="1" onkeyup="movetoNext(this,'third')">
+            <input class="input-char third" type="text" maxlength="1" onkeyup="movetoNext(this,'fourth')">
+            <input class="input-char fourth" type="text" maxlength="1" onkeyup="movetoNext(this,'fifth')">
+            <input class="input-char fifth" type="text" maxlength="1" onkeyup="submit()">
+        </form>
+        <form action="processInput()" method="get">
+            <input class="input-char first" type="text" maxlength="1" onkeyup="movetoNext(this,'second')">
+            <input class="input-char second" type="text" maxlength="1" onkeyup="movetoNext(this,'third')">
+            <input class="input-char third" type="text" maxlength="1" onkeyup="movetoNext(this,'fourth')">
+            <input class="input-char fourth" type="text" maxlength="1" onkeyup="movetoNext(this,'fifth')">
+            <input class="input-char fifth" type="text" maxlength="1" onkeyup="submit()">
+        </form>
+        <form action="processInput()" method="get">
+            <input class="input-char first" type="text" maxlength="1" onkeyup="movetoNext(this,'second')">
+            <input class="input-char second" type="text" maxlength="1" onkeyup="movetoNext(this,'third')">
+            <input class="input-char third" type="text" maxlength="1" onkeyup="movetoNext(this,'fourth')">
+            <input class="input-char fourth" type="text" maxlength="1" onkeyup="movetoNext(this,'fifth')">
+            <input class="input-char fifth" type="text" maxlength="1" onkeyup="submit()">
+        </form>
+        <form action="processResult()" method="get">
+            <input class="input-char first" type="text" maxlength="1" onkeyup="movetoNext(this,'second')">
+            <input class="input-char second" type="text" maxlength="1" onkeyup="movetoNext(this,'third')">
+            <input class="input-char third" type="text" maxlength="1" onkeyup="movetoNext(this,'fourth')">
+            <input class="input-char fourth" type="text" maxlength="1" onkeyup="movetoNext(this,'fifth')">
+            <input class="input-char fifth" type="text" maxlength="1" onkeyup="submit()">
+        </form>
     </div>
+
+
+    <!-- ===== KEYBOARD ===== -->
 
     <div id="keyboard-cont">
         <div class="first-row">
-            <button class="keyboard-button">q</button>
-            <button class="keyboard-button">w</button>
-            <button class="keyboard-button">e</button>
-            <button class="keyboard-button">r</button>
-            <button class="keyboard-button">t</button>
-            <button class="keyboard-button">y</button>
-            <button class="keyboard-button">u</button>
-            <button class="keyboard-button">i</button>
-            <button class="keyboard-button">o</button>
-            <button class="keyboard-button">p</button>
+            <button class="keyboard-button" value="q">q</button>
+            <button class="keyboard-button" value="w">w</button>
+            <button class="keyboard-button" value="e">e</button>
+            <button class="keyboard-button" value="r">r</button>
+            <button class="keyboard-button" value="t">t</button>
+            <button class="keyboard-button" value="y">y</button>
+            <button class="keyboard-button" value="u">u</button>
+            <button class="keyboard-button" value="i">i</button>
+            <button class="keyboard-button" value="o">o</button>
+            <button class="keyboard-button" value="p">p</button>
         </div>
         <div class="second-row">
-            <button class="keyboard-button">a</button>
-            <button class="keyboard-button">s</button>
-            <button class="keyboard-button">d</button>
-            <button class="keyboard-button">f</button>
-            <button class="keyboard-button">g</button>
-            <button class="keyboard-button">h</button>
-            <button class="keyboard-button">j</button>
-            <button class="keyboard-button">k</button>
-            <button class="keyboard-button">l</button>
+            <button class="keyboard-button" value="a">a</button>
+            <button class="keyboard-button" value="s">s</button>
+            <button class="keyboard-button" value="d">d</button>
+            <button class="keyboard-button" value="f">f</button>
+            <button class="keyboard-button" value="g">g</button>
+            <button class="keyboard-button" value="h">h</button>
+            <button class="keyboard-button" value="j">j</button>
+            <button class="keyboard-button" value="k">k</button>
+            <button class="keyboard-button" value="l">l</button>
         </div>
         <div class="third-row">
             <button class="keyboard-button">Del</button>
-            <button class="keyboard-button">z</button>
-            <button class="keyboard-button">x</button>
-            <button class="keyboard-button">c</button>
-            <button class="keyboard-button">v</button>
-            <button class="keyboard-button">b</button>
-            <button class="keyboard-button">n</button>
-            <button class="keyboard-button">m</button>
+            <button class="keyboard-button" value="z">z</button>
+            <button class="keyboard-button" value="x">x</button>
+            <button class="keyboard-button" value="c">c</button>
+            <button class="keyboard-button" value="v">v</button>
+            <button class="keyboard-button" value="b">b</button>
+            <button class="keyboard-button" value="n">n</button>
+            <button class="keyboard-button" value="m">m</button>
             <button class="keyboard-button">Enter</button>
         </div>
     </div>
