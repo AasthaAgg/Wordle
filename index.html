@@ -20,48 +20,42 @@
     <!-- ===== INPUT - AREA ===== -->
     
     <div class="input-area">
-        <form action="processInput()" method="get">
-            <input class="input-char first" type="text" maxlength="1" onkeyup="movetoNext(this,'second')">
-            <input class="input-char second" type="text" maxlength="1" onkeyup="movetoNext(this,'third')">
-            <input class="input-char third" type="text" maxlength="1" onkeyup="movetoNext(this,'fourth')">
-            <input class="input-char fourth" type="text" maxlength="1" onkeyup="movetoNext(this,'fifth')">
-            <input class="input-char fifth" type="text" maxlength="1" onkeyup="submit()">
-        </form>
-        <form action="processInput()" method="get">
-            <input class="input-char first" type="text" maxlength="1" onkeyup="movetoNext(this,'second')">
-            <input class="input-char second" type="text" maxlength="1" onkeyup="movetoNext(this,'third')">
-            <input class="input-char third" type="text" maxlength="1" onkeyup="movetoNext(this,'fourth')">
-            <input class="input-char fourth" type="text" maxlength="1" onkeyup="movetoNext(this,'fifth')">
-            <input class="input-char fifth" type="text" maxlength="1" onkeyup="submit()">
-        </form>
-        <form action="processInput()" method="get">
-            <input class="input-char first" type="text" maxlength="1" onkeyup="movetoNext(this,'second')">
-            <input class="input-char second" type="text" maxlength="1" onkeyup="movetoNext(this,'third')">
-            <input class="input-char third" type="text" maxlength="1" onkeyup="movetoNext(this,'fourth')">
-            <input class="input-char fourth" type="text" maxlength="1" onkeyup="movetoNext(this,'fifth')">
-            <input class="input-char fifth" type="text" maxlength="1" onkeyup="submit()">
-        </form>
-        <form action="processInput()" method="get">
-            <input class="input-char first" type="text" maxlength="1" onkeyup="movetoNext(this,'second')">
-            <input class="input-char second" type="text" maxlength="1" onkeyup="movetoNext(this,'third')">
-            <input class="input-char third" type="text" maxlength="1" onkeyup="movetoNext(this,'fourth')">
-            <input class="input-char fourth" type="text" maxlength="1" onkeyup="movetoNext(this,'fifth')">
-            <input class="input-char fifth" type="text" maxlength="1" onkeyup="submit()">
-        </form>
-        <form action="processInput()" method="get">
-            <input class="input-char first" type="text" maxlength="1" onkeyup="movetoNext(this,'second')">
-            <input class="input-char second" type="text" maxlength="1" onkeyup="movetoNext(this,'third')">
-            <input class="input-char third" type="text" maxlength="1" onkeyup="movetoNext(this,'fourth')">
-            <input class="input-char fourth" type="text" maxlength="1" onkeyup="movetoNext(this,'fifth')">
-            <input class="input-char fifth" type="text" maxlength="1" onkeyup="submit()">
-        </form>
-        <form action="processResult()" method="get">
-            <input class="input-char first" type="text" maxlength="1" onkeyup="movetoNext(this,'second')">
-            <input class="input-char second" type="text" maxlength="1" onkeyup="movetoNext(this,'third')">
-            <input class="input-char third" type="text" maxlength="1" onkeyup="movetoNext(this,'fourth')">
-            <input class="input-char fourth" type="text" maxlength="1" onkeyup="movetoNext(this,'fifth')">
-            <input class="input-char fifth" type="text" maxlength="1" onkeyup="submit()">
-        </form>
+            <input class="input-char input-1 first" type="text" maxlength="1" oninput="movetoNext('.input-1.second')">
+            <input class="input-char input-1 second" type="text" maxlength="1" oninput="movetoNext('.input-1.third')">
+            <input class="input-char input-1 third" type="text" maxlength="1" oninput="movetoNext('.input-1.fourth')">
+            <input class="input-char input-1 fourth" type="text" maxlength="1" oninput="movetoNext('.input-1.fifth')">
+            <input class="input-char input-1 fifth" type="text" maxlength="1" oninput="movetoNext('.input-2.first'); processInput()">
+        <br>
+            <input class="input-char input-2 first" type="text" maxlength="1" oninput="movetoNext('.input-2.second')">
+            <input class="input-char input-2 second" type="text" maxlength="1" oninput="movetoNext('.input-2.third')">
+            <input class="input-char input-2 third" type="text" maxlength="1" oninput="movetoNext('.input-2.fourth')">
+            <input class="input-char input-2 fourth" type="text" maxlength="1" oninput="movetoNext('.input-2.fifth')">
+            <input class="input-char input-2 fifth" type="text" maxlength="1" oninput="movetoNext('.input-3.first'); processInput()">
+        <br>
+            <input class="input-char input-3 first" type="text" maxlength="1" oninput="movetoNext('.input-3.second')">
+            <input class="input-char input-3 second" type="text" maxlength="1" oninput="movetoNext('.input-3.third')">
+            <input class="input-char input-3 third" type="text" maxlength="1" oninput="movetoNext('.input-3.fourth')">
+            <input class="input-char input-3 fourth" type="text" maxlength="1" oninput="movetoNext('.input-3.fifth')">
+            <input class="input-char input-3 fifth" type="text" maxlength="1" oninput="movetoNext('.input-4.first'); processInput()">
+        <br>
+            <input class="input-char input-4 first" type="text" maxlength="1" oninput="movetoNext('.input-4.second')">
+            <input class="input-char input-4 second" type="text" maxlength="1" oninput="movetoNext('.input-4.third')">
+            <input class="input-char input-4 third" type="text" maxlength="1" oninput="movetoNext('.input-4.fourth')">
+            <input class="input-char input-4 fourth" type="text" maxlength="1" oninput="movetoNext('.input-4.fifth')">
+            <input class="input-char input-4 fifth" type="text" maxlength="1" oninput="movetoNext('.input-5.first'); processInput()">
+        <br>
+            <input class="input-char input-5 first" type="text" maxlength="1" oninput="movetoNext('.input-5.second')">
+            <input class="input-char input-5 second" type="text" maxlength="1" oninput="movetoNext('.input-5.third')">
+            <input class="input-char input-5 third" type="text" maxlength="1" oninput="movetoNext('.input-5.fourth')">
+            <input class="input-char input-5 fourth" type="text" maxlength="1" oninput="movetoNext('.input-5.fifth')">
+            <input class="input-char input-5 fifth" type="text" maxlength="1" oninput="movetoNext('.input-6.first'); processInput()">
+        <br>
+            <input class="input-char input-6 first" type="text" maxlength="1" oninput="movetoNext('.input-6.second')">
+            <input class="input-char input-6 second" type="text" maxlength="1" oninput="movetoNext('.input-6.third')">
+            <input class="input-char input-6 third" type="text" maxlength="1" oninput="movetoNext('.input-6.fourth')">
+            <input class="input-char input-6 fourth" type="text" maxlength="1" oninput="movetoNext('.input-6.fifth')">
+            <input class="input-char input-6 fifth" type="text" maxlength="1" oninput="result()">
+        
     </div>
 
 
