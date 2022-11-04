@@ -20,7 +20,7 @@ function movetoNext(){
 }
 
 
-// ===== ON EVERY INPUT, MOVE TO PREVIOUS INPUT BOX =====
+// ===== REMOVE CHARACTER, MOVE TO PREVIOUS INPUT BOX =====
 
 function movetoPrevious(){
     inputChars[inputBoxIndex].classList.remove('active');
@@ -51,7 +51,12 @@ keyboardButtons.forEach(keyboardBtn => {
     keyboardBtn.addEventListener('click',function(){
         if(this.value.match(/del/)) removeLastChar();
         else if(this.value.match(/enter/)){
-            if(input.length == 5) checkInputWord();
+            if(inputBoxIndex == 29){
+                checkInputWord();
+                disableInput();
+                generateResult();
+            }
+            else if(input.length == 5) checkInputWord();
             else document.querySelector('.msg').innerHTML = "You must enter 5 characters!!";
         }
         else if(this.value.match(/[a-z]/)){
@@ -67,12 +72,7 @@ keyboardButtons.forEach(keyboardBtn => {
 function setInputChar(){
     input += document.querySelector('.input-char.active').value;
     
-    if(inputBoxIndex == 29){
-        disableInput();
-        checkInputWord();
-        generateResult();
-    }
-    else if(input.length != 5) movetoNext();
+    if(input.length != 5) movetoNext();
     else inputChars[inputBoxIndex].blur();
 }
 
@@ -100,9 +100,9 @@ function removeLastChar(){
 // ===== PROCESS INPUT VALUE =====
 
 function checkInputWord(){
-    
+    console.log(input);
     input = "";
-    movetoNext();
+    if(inputBoxIndex != 29) movetoNext();
 }
 
 
