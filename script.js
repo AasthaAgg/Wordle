@@ -35,10 +35,35 @@ function disableInput(){
     inputChars[inputBoxIndex].disabled = true;
 }
 
+// ===== DISPLAY MESSAGE ON SCREEN =====
+
+function setMsg(msg){
+    document.querySelector('.msg').innerHTML = msg;
+}
 
 // ===== ADD EVENT LISTENER FOR EXTERNAL KEYBOARD INPUT =====
 
 inputChars.forEach(inputChar=>{
+       
+    inputChar.addEventListener("keydown", function(event) {
+        if(event.key == "Backspace") removeLastChar();
+        else if(event.key == "Enter"){
+            console.log("Enter");
+            if(inputBoxIndex == 29){
+                checkInputWord();
+                disableInput();
+                generateResult();
+            }
+            else if(input.length == 5){
+                checkInputWord();
+            } 
+            else{
+                setMsg("You must enter 5 characters!!");
+                setTimeout(setMsg, 2000, "");
+            }
+        }
+    });
+
     inputChar.addEventListener('input',function(){
         if(this.value.match(/[A-z]/)) setInputChar();
     });
@@ -57,7 +82,10 @@ keyboardButtons.forEach(keyboardBtn => {
                 generateResult();
             }
             else if(input.length == 5) checkInputWord();
-            else document.querySelector('.msg').innerHTML = "You must enter 5 characters!!";
+            else{
+                setMsg("You must enter 5 characters!!");
+                setTimeout(setMsg, 2000, "");
+            }
         }
         else if(this.value.match(/[a-z]/)){
             document.querySelector('.input-char.active').value = this.value;
@@ -70,10 +98,16 @@ keyboardButtons.forEach(keyboardBtn => {
 // ===== SET INPUT CHARACTER =====
 
 function setInputChar(){
+
+    if(inputBoxIndex == 0) setMsg("");
+
     input += document.querySelector('.input-char.active').value;
     
     if(input.length != 5) movetoNext();
     else inputChars[inputBoxIndex].blur();
+
+    console.log(input);
+
 }
 
 
@@ -100,7 +134,7 @@ function removeLastChar(){
 // ===== PROCESS INPUT VALUE =====
 
 function checkInputWord(){
-    console.log(input);
+    console.log("word input : "+ input);
     input = "";
     if(inputBoxIndex != 29) movetoNext();
 }
