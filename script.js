@@ -2,7 +2,19 @@ var inputChars = document.querySelectorAll('.input-char');
 var keyboardButtons = document.querySelectorAll('.keyboard-button');
 var input="";
 var inputBoxIndex = 0;
+var randomWord="";
 
+
+// ===== FUNCTION TO GENERATE RANDOM WORD =====
+
+function generateRandomWord(level = custom){
+    randomWord = level[Math.floor(Math.random() * level.length)];
+    console.log(randomWord);
+}
+
+// ===== GENERATE RANDOM WORD ON PAGE LOAD =====
+
+generateRandomWord();
 
 // ===== FOCUS ON FIRST INPUT BOX (BY DEFAULT) =====
 
