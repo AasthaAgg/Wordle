@@ -3,13 +3,13 @@ var keyboardButtons = document.querySelectorAll('.keyboard-button');
 var input="";
 var inputBoxIndex = 0;
 var randomWord="";
+var gameStatus = "start";
 
 
 // ===== FUNCTION TO GENERATE RANDOM WORD =====
 
 function generateRandomWord(level = custom){
     randomWord = level[Math.floor(Math.random() * level.length)];
-    console.log(randomWord);
 }
 
 // ===== GENERATE RANDOM WORD ON PAGE LOAD =====
@@ -60,7 +60,7 @@ inputChars.forEach(inputChar=>{
     inputChar.addEventListener("keydown", function(event) {
         if(event.key == "Backspace") removeLastChar();
         else if(event.key == "Enter"){
-            console.log("Enter");
+            setMsg("");
             if(inputBoxIndex == 29){
                 checkInputWord();
                 disableInput();
@@ -71,7 +71,6 @@ inputChars.forEach(inputChar=>{
             } 
             else{
                 setMsg("You must enter 5 characters!!");
-                setTimeout(setMsg, 2000, "");
             }
         }
     });
@@ -88,6 +87,7 @@ keyboardButtons.forEach(keyboardBtn => {
     keyboardBtn.addEventListener('click',function(){
         if(this.value.match(/del/)) removeLastChar();
         else if(this.value.match(/enter/)){
+            setMsg("");
             if(inputBoxIndex == 29){
                 checkInputWord();
                 disableInput();
@@ -110,15 +110,12 @@ keyboardButtons.forEach(keyboardBtn => {
 // ===== SET INPUT CHARACTER =====
 
 function setInputChar(){
+    setMsg("");
 
-    if(inputBoxIndex == 0) setMsg("");
-
-    input += document.querySelector('.input-char.active').value;
+    input += document.querySelector('.input-char.active').value.toUpperCase();
     
     if(input.length != 5) movetoNext();
     else inputChars[inputBoxIndex].blur();
-
-    console.log(input);
 
 }
 
@@ -126,6 +123,7 @@ function setInputChar(){
 // ===== REMOVE LAST CHARACTER =====
 
 function removeLastChar(){
+    setMsg("");
 
     if(input.length==5){
         input = input.substring(0,input.length-1);
@@ -143,17 +141,38 @@ function removeLastChar(){
 }
 
 
-// ===== PROCESS INPUT VALUE =====
+// ===== PROCESS INPUT WORD =====
 
 function checkInputWord(){
-    console.log("word input : "+ input);
-    input = "";
-    if(inputBoxIndex != 29) movetoNext();
+    if(fullList.includes(input)){
+        for(var i=0; i<5; i++){
+            if(input.charAt(i) === randomWord.charAt(i)){
+                inputChars[inputBoxIndex+i-4].classList.add('green');
+            }
+            else if(randomWord.includes(input.charAt(i))){
+                inputChars[inputBoxIndex+i-4].classList.add('yellow');
+            }
+            else{
+                inputChars[inputBoxIndex+i-4].classList.add('grey');
+    
+            }
+        }
+    
+        if(input === randomWord) generateResult();
+    
+        input = "";
+        if(inputBoxIndex != 29 && gameStatus != "over") movetoNext();
+    }
+    else{
+        setMsg("Enter a valid word..");
+    }
+    
 }
 
 
 // ===== CREATE RESULT =====
 
 function generateResult(){
-    
+    setMsg("Yeah! You guessed it right..");
+    gameStatus = "over";
 }
