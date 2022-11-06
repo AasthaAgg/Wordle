@@ -66,12 +66,8 @@ inputChars.forEach(inputChar=>{
                 disableInput();
                 generateResult();
             }
-            else if(input.length == 5){
-                checkInputWord();
-            } 
-            else{
-                setMsg("You must enter 5 characters!!");
-            }
+            else if(input.length == 5) checkInputWord();
+            else setMsg("You must enter 5 characters!!");
         }
     });
 
@@ -94,10 +90,7 @@ keyboardButtons.forEach(keyboardBtn => {
                 generateResult();
             }
             else if(input.length == 5) checkInputWord();
-            else{
-                setMsg("You must enter 5 characters!!");
-                setTimeout(setMsg, 2000, "");
-            }
+            else setMsg("You must enter 5 characters!!");
         }
         else if(this.value.match(/[a-z]/)){
             document.querySelector('.input-char.active').value = this.value;
@@ -158,21 +151,24 @@ function checkInputWord(){
             }
         }
     
-        if(input === randomWord) generateResult();
+        if(input === randomWord){
+            gameStatus = "win";
+            generateResult();
+        }
     
         input = "";
-        if(inputBoxIndex != 29 && gameStatus != "over") movetoNext();
+        if(inputBoxIndex != 29 && gameStatus != "win") movetoNext();
     }
     else{
         setMsg("Enter a valid word..");
     }
-    
+
 }
 
 
 // ===== CREATE RESULT =====
 
 function generateResult(){
-    setMsg("Yeah! You guessed it right..");
-    gameStatus = "over";
+    if(gameStatus === "win") setMsg("Yeah! You guessed it right..");
+    else setMsg("Oops! The correct word is "+randomWord);
 }
