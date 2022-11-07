@@ -63,8 +63,10 @@ inputChars.forEach(inputChar=>{
             setMsg("");
             if(inputBoxIndex == 29){
                 checkInputWord();
-                disableInput();
-                generateResult();
+                if(gameStatus != "incorrectInput"){
+                    disableInput();
+                    generateResult();
+                }
             }
             else if(input.length == 5) checkInputWord();
             else setMsg("You must enter 5 characters!!");
@@ -86,8 +88,10 @@ keyboardButtons.forEach(keyboardBtn => {
             setMsg("");
             if(inputBoxIndex == 29){
                 checkInputWord();
-                disableInput();
-                generateResult();
+                if(gameStatus != "incorrectInput"){
+                    disableInput();
+                    generateResult();
+                }
             }
             else if(input.length == 5) checkInputWord();
             else setMsg("You must enter 5 characters!!");
@@ -108,8 +112,6 @@ function setInputChar(){
     input += document.querySelector('.input-char.active').value.toUpperCase();
     
     if(input.length != 5) movetoNext();
-    else inputChars[inputBoxIndex].blur();
-
 }
 
 
@@ -153,7 +155,10 @@ function checkInputWord(){
     
         if(input === randomWord){
             gameStatus = "win";
+            inputChars[inputBoxIndex].disabled = true;
             generateResult();
+        }else{
+            if(inputBoxIndex == 29) gameStatus = "over";
         }
     
         input = "";
@@ -161,6 +166,7 @@ function checkInputWord(){
     }
     else{
         setMsg("Enter a valid word..");
+        gameStatus = "incorrectInput";
     }
 
 }
