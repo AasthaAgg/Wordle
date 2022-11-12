@@ -6,7 +6,6 @@
 
 body{
     width: 100%;
-    min-width: 480px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -130,4 +129,54 @@ h1{
 .keyboard-button:active{
     transform: translate(1px,1px);
     box-shadow: 0 1px rgba(99, 95, 95, 0.618);
+}
+
+
+/* ===== MEDIA QUERIES ===== */
+
+@media screen and (max-width: 600px){
+    
+    /* ===== HEADER ===== */
+    
+    header{
+        padding: 1rem;
+    }
+
+    h1{
+        font-size: 1.5rem;
+    }
+
+    .help-btn{
+        display: none;
+    }
+
+    .msg{
+        margin-bottom: 1rem;
+    }
+
+    /* ===== INPUT AREA ===== */
+
+    .input-area{
+        margin-bottom: 1rem;
+    }
+
+    .input-char{
+        height: 2.25rem;
+        width: 2.5rem;
+        font-size: 1.75rem;
+    }
+
+    /* ===== KEYBOARD ===== */
+
+    #keyboard-cont{
+        line-height: 2rem;
+    }
+
+    .keyboard-button{
+        min-width: 1.65rem;
+        padding: 2px 4px;
+        margin: 0.01rem;
+        font-size: 1rem;
+        font-weight: 700;
+    }
 }
