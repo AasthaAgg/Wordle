@@ -25,7 +25,7 @@ header{
     background-color: black;
 }
 
-h1{
+header h1{
     cursor: pointer;
     color: white;
 }
@@ -52,6 +52,66 @@ h1{
     font-size: 1.25rem;
     height: 1.5rem;
     color: red;
+}
+
+
+/* ===== HELP SECTION ===== */
+
+.help{
+    display: none;
+    max-width: calc(100% - 2rem);
+    width: 700px;
+    position: absolute;
+    top: 80px;
+    left: calc(50% - 1rem);
+    transform: translateX(-50%);
+    padding: 2rem 3rem;
+    margin: 1rem;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    background-color: white;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.687);
+    z-index: 100;
+}
+
+.help h2{
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.help ul{
+    list-style: none;
+    font-size: 1.35rem;
+    margin-bottom: 2rem;
+}
+
+.help img{
+    max-width: calc(100% - 1rem);
+    width: 300px;
+    height: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.help button{
+    padding: 4px 24px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgba(15, 15, 15, 0.807);
+    cursor: pointer;
+    border: solid 2px rgba(48, 46, 46, 0.855);
+    border-radius: 4px;
+    box-shadow: 2px 3px rgba(99, 95, 95, 0.618);
+    transition: 0.3s;
+}
+
+.help button:hover{
+    transform: scale(1.02);
+}
+
+.help button:active{
+    transform: translate(1px,1px);
+    box-shadow: 0 1px rgba(99, 95, 95, 0.618);
 }
 
 
@@ -142,16 +202,50 @@ h1{
         padding: 1rem;
     }
 
-    h1{
+    header h1{
         font-size: 1.5rem;
     }
 
     .help-btn{
-        display: none;
+        /* display: none; */
+        height: 2.5rem;
+        width: 2.5rem;
+        font-size: 1.5rem;
     }
+
+    /* ===== MESSAGE ===== */
 
     .msg{
         margin-bottom: 1rem;
+    }
+
+    /* ===== HELP SECTION ===== */
+
+    .help{
+        margin: 10px;
+        width: calc(100% - 20px);
+        padding: 2rem 1rem;
+        top: 60px;
+        left: calc(50% - 10px);
+        font-size: 1.05rem;
+        line-height: 1.5rem;
+    }
+
+    .help h2{
+        margin-bottom: 1rem;
+    }
+    
+    .help ul{
+        font-size: 1.15rem;
+        margin-bottom: 1rem;
+    }
+    
+    .help img{
+        max-width: 15rem;
+    }
+
+    .help button{
+        font-size: 1.05rem;
     }
 
     /* ===== INPUT AREA ===== */

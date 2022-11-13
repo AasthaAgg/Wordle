@@ -1,3 +1,5 @@
+var help = document.querySelector(".help");
+var main = document.querySelector(".main");
 var inputChars = document.querySelectorAll('.input-char');
 var keyboardButtons = document.querySelectorAll('.keyboard-button');
 var input="";
@@ -15,6 +17,19 @@ function generateRandomWord(level = custom){
 // ===== GENERATE RANDOM WORD ON PAGE LOAD =====
 
 generateRandomWord();
+
+
+// ===== HELP =====
+
+function showHelp(){
+    help.style.display = "block";
+    main.style.filter = "blur(5px)";
+}
+
+function closeHelp(){
+    help.style.display = "none";
+    main.style.filter = "blur(0)";
+}
 
 // ===== FOCUS ON FIRST INPUT BOX (BY DEFAULT) =====
 

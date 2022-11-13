@@ -13,90 +13,120 @@
 
     <header>
         <h1>WORDLE</h1>
-        <button class="help-btn" type="submit">?</button>
+        <button class="help-btn" type="submit" onclick="showHelp()">?</button>
     </header>
 
     <div class="msg">Start guessing!</div>
 
-    <!-- ===== INPUT - AREA ===== -->
+    <!-- ===== HELP SECTION ===== -->
+
+    <section class="help">
+        <h2>How to play?</h2>
+
+        <p>You have 6 tries to guess the word.</p>
+        <p>Only valid words are allowed. Hit enter to submit your guess.</p>
+        <p>With each guess, the color of the tiles will change to show you how close your guess is to the word.</p>
+
+        <img src="word.png" alt="">
+
+        <ul>
+            <li><b>S</b> is in the word and in the correct place.</li>
+            <li><b>N</b> is in the word but in the wrong place.</li>
+            <li><b>P</b> and <b>O</b> are not in the word.</li>
+        </ul>
+
+        <!-- <p>There are 3 different levels : <b> Beginner, Intermediate</b> and <b>Advanced</b>.</p>
+        <p>The higher the level, the more words will be in play and the harder it will be to guess.</p> -->
+
+        <button onclick="closeHelp()">Close</button>
+
+    </section>
+
+    <!-- ===== MAIN BODY ===== -->
+
+    <section class="main">
     
-    <div class="input-area">
+         <!-- ===== INPUT - AREA ===== -->
+    
+        <div class="input-area">
             <input class="input-char active" type="text" maxlength="1">
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
-        <br>
+            <br>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
-        <br>
+            <br>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
-        <br>
+            <br>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
-        <br>
+            <br>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
-        <br>
+            <br>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
             <input class="input-char" type="text" maxlength="1" disabled>
-    </div>
+        </div>
 
 
-    <!-- ===== KEYBOARD ===== -->
+        <!-- ===== KEYBOARD ===== -->
 
-    <div id="keyboard-cont">
-        <div class="first-row">
-            <button class="keyboard-button" value="q">q</button>
-            <button class="keyboard-button" value="w">w</button>
-            <button class="keyboard-button" value="e">e</button>
-            <button class="keyboard-button" value="r">r</button>
-            <button class="keyboard-button" value="t">t</button>
-            <button class="keyboard-button" value="y">y</button>
-            <button class="keyboard-button" value="u">u</button>
-            <button class="keyboard-button" value="i">i</button>
-            <button class="keyboard-button" value="o">o</button>
-            <button class="keyboard-button" value="p">p</button>
+        <div id="keyboard-cont">
+            <div class="first-row">
+                <button class="keyboard-button" value="q">q</button>
+                <button class="keyboard-button" value="w">w</button>
+                <button class="keyboard-button" value="e">e</button>
+                <button class="keyboard-button" value="r">r</button>
+                <button class="keyboard-button" value="t">t</button>
+                <button class="keyboard-button" value="y">y</button>
+                <button class="keyboard-button" value="u">u</button>
+                <button class="keyboard-button" value="i">i</button>
+                <button class="keyboard-button" value="o">o</button>
+                <button class="keyboard-button" value="p">p</button>
+            </div>
+            <div class="second-row">
+                <button class="keyboard-button" value="a">a</button>
+                <button class="keyboard-button" value="s">s</button>
+                <button class="keyboard-button" value="d">d</button>
+                <button class="keyboard-button" value="f">f</button>
+                <button class="keyboard-button" value="g">g</button>
+                <button class="keyboard-button" value="h">h</button>
+                <button class="keyboard-button" value="j">j</button>
+                <button class="keyboard-button" value="k">k</button>
+                <button class="keyboard-button" value="l">l</button>
+            </div>
+            <div class="third-row">
+                <button class="keyboard-button" value="del">Del</button>
+                <button class="keyboard-button" value="z">z</button>
+                <button class="keyboard-button" value="x">x</button>
+                <button class="keyboard-button" value="c">c</button>
+                <button class="keyboard-button" value="v">v</button>
+                <button class="keyboard-button" value="b">b</button>
+                <button class="keyboard-button" value="n">n</button>
+                <button class="keyboard-button" value="m">m</button>
+                <button class="keyboard-button" value="enter">Enter</button>
+            </div>
         </div>
-        <div class="second-row">
-            <button class="keyboard-button" value="a">a</button>
-            <button class="keyboard-button" value="s">s</button>
-            <button class="keyboard-button" value="d">d</button>
-            <button class="keyboard-button" value="f">f</button>
-            <button class="keyboard-button" value="g">g</button>
-            <button class="keyboard-button" value="h">h</button>
-            <button class="keyboard-button" value="j">j</button>
-            <button class="keyboard-button" value="k">k</button>
-            <button class="keyboard-button" value="l">l</button>
-        </div>
-        <div class="third-row">
-            <button class="keyboard-button" value="del">Del</button>
-            <button class="keyboard-button" value="z">z</button>
-            <button class="keyboard-button" value="x">x</button>
-            <button class="keyboard-button" value="c">c</button>
-            <button class="keyboard-button" value="v">v</button>
-            <button class="keyboard-button" value="b">b</button>
-            <button class="keyboard-button" value="n">n</button>
-            <button class="keyboard-button" value="m">m</button>
-            <button class="keyboard-button" value="enter">Enter</button>
-        </div>
-    </div>
+
+    </section>
 
     <script src="words.js"></script>
     <script src="script.js"></script>
