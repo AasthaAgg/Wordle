@@ -12,7 +12,21 @@
     <!-- ===== HEADER ===== -->
 
     <header>
+        <!-- ===== NAV MENU ===== -->
+        <nav>
+            <a onclick="startGame(); closeNav()">Start Game</a>
+            <a onclick="setLevel(); closeNav()">Level</a>
+            <a onclick="getScore(); closeNav()">Score</a>
+            <a onclick="showHelp(); closeNav()">Help</a>
+        </nav>
+
+        <!-- ==== MENU BUTTONS ===== -->
+        <button class="menuBtn openMenu" onclick="openMenu()">☰</button>
+        <button class="menuBtn closeMenu" onclick="closeMenu()">X</button>
+
         <h1>WORDLE</h1>
+
+        <!-- ===== HELP BUTTON ===== -->
         <button class="help-btn" type="submit" onclick="showHelp()">?</button>
     </header>
 

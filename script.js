@@ -7,17 +7,34 @@ var inputBoxIndex = 0;
 var randomWord="";
 var gameStatus = "start";
 
+startGame();
+
+// ===== START GAME =====
+
+function startGame(){
+    inputChars[inputBoxIndex].focus();
+    generateRandomWord();
+}
+
+// ===== OPEN MENU =====
+
+function openMenu(){
+    document.querySelector("nav").style.width = "350px";
+    document.querySelector(".openMenu").style.display = "none";
+    document.querySelector(".closeMenu").style.display = "inline";
+}
+
+function closeMenu(){
+    document.querySelector("nav").style.width = "0";
+    document.querySelector(".openMenu").style.display = "inline";
+    document.querySelector(".closeMenu").style.display = "none";
+}
 
 // ===== FUNCTION TO GENERATE RANDOM WORD =====
 
 function generateRandomWord(level = custom){
     randomWord = level[Math.floor(Math.random() * level.length)];
 }
-
-// ===== GENERATE RANDOM WORD ON PAGE LOAD =====
-
-generateRandomWord();
-
 
 // ===== HELP =====
 
@@ -30,10 +47,6 @@ function closeHelp(){
     help.style.display = "none";
     main.style.filter = "blur(0)";
 }
-
-// ===== FOCUS ON FIRST INPUT BOX (BY DEFAULT) =====
-
-inputChars[inputBoxIndex].focus();
 
 
 // ===== ON EVERY INPUT, MOVE TO NEXT INPUT BOX =====
