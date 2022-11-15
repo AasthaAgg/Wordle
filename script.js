@@ -7,6 +7,8 @@ var inputBoxIndex = 0;
 var randomWord="";
 var gameStatus = "start";
 var score = 0;
+var countCorrect = 0;
+var totalCorrect = 0;
 
 startGame();
 generateRandomWord();
@@ -172,7 +174,7 @@ function checkInputWord(){
         for(var i=0; i<5; i++){
             if(input.charAt(i) === randomWord.charAt(i)){
                 inputChars[inputBoxIndex+i-4].classList.add('green');
-                score += 10;
+                countCorrect += 1;
             }
             else if(randomWord.includes(input.charAt(i))){
                 inputChars[inputBoxIndex+i-4].classList.add('yellow');
@@ -180,9 +182,17 @@ function checkInputWord(){
             }
             else{
                 inputChars[inputBoxIndex+i-4].classList.add('grey');
-                score -= 5;
+                score -= 3;
             }
         }
+
+        if(countCorrect > totalCorrect){
+            score += (countCorrect - totalCorrect)*10;
+            totalCorrect = countCorrect;
+            countCorrect = 0;
+        }
+
+        setScore();
     
         if(input === randomWord){
             gameStatus = "win";
@@ -192,8 +202,6 @@ function checkInputWord(){
             if(inputBoxIndex == 29) gameStatus = "over";
         }
     
-        setScore();
-
         input = "";
         if(inputBoxIndex != 29 && gameStatus != "win") movetoNext();
     }
