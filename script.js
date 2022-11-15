@@ -6,14 +6,15 @@ var input="";
 var inputBoxIndex = 0;
 var randomWord="";
 var gameStatus = "start";
+var score = 0;
 
 startGame();
+generateRandomWord();
 
 // ===== START GAME =====
 
 function startGame(){
     inputChars[inputBoxIndex].focus();
-    generateRandomWord();
 }
 
 // ===== OPEN MENU =====
@@ -171,13 +172,15 @@ function checkInputWord(){
         for(var i=0; i<5; i++){
             if(input.charAt(i) === randomWord.charAt(i)){
                 inputChars[inputBoxIndex+i-4].classList.add('green');
+                score += 10;
             }
             else if(randomWord.includes(input.charAt(i))){
                 inputChars[inputBoxIndex+i-4].classList.add('yellow');
+                score += 5;
             }
             else{
                 inputChars[inputBoxIndex+i-4].classList.add('grey');
-    
+                score -= 5;
             }
         }
     
@@ -189,6 +192,8 @@ function checkInputWord(){
             if(inputBoxIndex == 29) gameStatus = "over";
         }
     
+        setScore();
+
         input = "";
         if(inputBoxIndex != 29 && gameStatus != "win") movetoNext();
     }
@@ -199,6 +204,11 @@ function checkInputWord(){
 
 }
 
+// ===== SET SCORE =====
+
+function setScore(){
+    document.querySelector(".score").innerHTML = score;
+}
 
 // ===== CREATE RESULT =====
 
