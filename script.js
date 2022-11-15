@@ -2,6 +2,7 @@ var help = document.querySelector(".help");
 var main = document.querySelector(".main");
 var inputChars = document.querySelectorAll('.input-char');
 var keyboardButtons = document.querySelectorAll('.keyboard-button');
+var scoreRules = document.querySelector(".scoreRules");
 var input="";
 var inputBoxIndex = 0;
 var randomWord="";
@@ -27,6 +28,8 @@ function openMenu(){
     document.querySelector(".closeMenu").style.display = "inline";
 }
 
+// ===== CLOSE MENU =====
+
 function closeMenu(){
     document.querySelector("nav").style.width = "0";
     document.querySelector(".openMenu").style.display = "inline";
@@ -39,15 +42,18 @@ function generateRandomWord(level = custom){
     randomWord = level[Math.floor(Math.random() * level.length)];
 }
 
-// ===== HELP =====
+// ===== SHOW BLOCK =====
 
-function showHelp(){
-    help.style.display = "block";
-    main.style.filter = "blur(5px)";
+function show(block){
+    console.log("open help");
+    block.style.display = "block";
+    main.style.filter = "blur(3px)";
 }
 
-function closeHelp(){
-    help.style.display = "none";
+// ===== CLOSE BLOCK =====
+
+function closeIt(block){
+    block.style.display = "none";
     main.style.filter = "blur(0)";
 }
 

@@ -16,8 +16,8 @@
         <nav>
             <a onclick="startGame(); closeMenu()">Start Game</a>
             <a onclick="setLevel(); closeMenu()">Level</a>
-            <a onclick="getScore(); closeMenu()">Score</a>
-            <a onclick="showHelp(); closeMenu()">Help</a>
+            <a onclick="show(scoreRules); closeMenu()">Score</a>
+            <a onclick="show(help); closeMenu()">Help</a>
         </nav>
 
         <!-- ==== MENU BUTTONS ===== -->
@@ -27,7 +27,7 @@
         <h1>WORDLE</h1>
 
         <!-- ===== HELP BUTTON ===== -->
-        <button class="help-btn" type="submit" onclick="showHelp()">?</button>
+        <button class="help-btn" type="submit" onclick="show(help)">?</button>
     </header>
 
 
@@ -51,9 +51,28 @@
         <!-- <p>There are 3 different levels : <b> Beginner, Intermediate</b> and <b>Advanced</b>.</p>
         <p>The higher the level, the more words will be in play and the harder it will be to guess.</p> -->
 
-        <button onclick="closeHelp()">Close</button>
+        <button onclick="closeIt(help)">Close</button>
 
     </section>
+
+
+    <!-- ===== SCORING RULES ===== -->
+
+    <section class="scoreRules">
+        <h1>How scores are calculated?</h1>
+
+        <img src="word.png" alt="">
+
+        <ul>
+            <li><b style="background-color: #35A535;">+10</b> for every correct letter, in the correct place.</li>
+            <li><b style="background-color: #D7BF4A;">+5</b> for correct letters, in the wrong place.</li>
+            <li><b style="background-color: #737373;">-3</b> for letters not in the word.</li>
+        </ul>
+
+        <button onclick="closeIt(scoreRules)">Close</button>
+
+    </section>
+
 
     <!-- ===== MAIN BODY ===== -->
 

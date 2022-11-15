@@ -138,6 +138,71 @@ header .help-btn{
     box-shadow: 0 1px rgba(99, 95, 95, 0.618);
 }
 
+
+/* ===== SCORE RULES SECTION ===== */
+
+.scoreRules{
+    display: none;
+    max-width: calc(100% - 2rem);
+    width: 700px;
+    position: absolute;
+    top: 80px;
+    left: calc(50% - 1rem);
+    transform: translateX(-50%);
+    padding: 2rem 3rem;
+    margin: 1rem;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    background-color: white;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.687);
+    z-index: 100;
+}
+
+.scoreRules h1{
+    margin-bottom: 1.5rem;
+}
+
+.scoreRules ul{
+    list-style: none;
+    font-size: 1.35rem;
+    margin-bottom: 2rem;
+}
+
+.scoreRules ul li b{
+    color: #fff;
+    padding: 0 5px;
+}
+
+.scoreRules img{
+    max-width: calc(100% - 1rem);
+    width: 300px;
+    height: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.scoreRules button{
+    padding: 4px 24px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgba(15, 15, 15, 0.807);
+    cursor: pointer;
+    border: solid 2px rgba(48, 46, 46, 0.855);
+    border-radius: 4px;
+    box-shadow: 2px 3px rgba(99, 95, 95, 0.618);
+    transition: 0.3s;
+}
+
+.scoreRules button:hover{
+    transform: scale(1.02);
+}
+
+.scoreRules button:active{
+    transform: translate(1px,1px);
+    box-shadow: 0 1px rgba(99, 95, 95, 0.618);
+}
+
+
 /* ===== MAIN SECTION ===== */
 
 .main{
@@ -349,6 +414,34 @@ header .help-btn{
     }
 
     .help button{
+        font-size: 1.05rem;
+    }
+
+
+    .scoreRules{
+        margin: 10px;
+        width: calc(100% - 20px);
+        padding: 2rem 1rem;
+        top: 60px;
+        left: calc(50% - 10px);
+        font-size: 1.05rem;
+        line-height: 1.5rem;
+    }
+
+    .scoreRules h1{
+        margin-bottom: 1rem;
+    }
+    
+    .scoreRules ul{
+        font-size: 1.15rem;
+        margin-bottom: 1rem;
+    }
+    
+    .scoreRules img{
+        max-width: 15rem;
+    }
+
+    .scoreRules button{
         font-size: 1.05rem;
     }
 
