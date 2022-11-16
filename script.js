@@ -1,4 +1,5 @@
 var help = document.querySelector(".help");
+var level = document.querySelector(".level");
 var main = document.querySelector(".main");
 var inputChars = document.querySelectorAll('.input-char');
 var keyboardButtons = document.querySelectorAll('.keyboard-button');
@@ -45,7 +46,6 @@ function generateRandomWord(level = custom){
 // ===== SHOW BLOCK =====
 
 function show(block){
-    console.log("open help");
     block.style.display = "block";
     main.style.filter = "blur(3px)";
 }
@@ -55,6 +55,8 @@ function show(block){
 function closeIt(block){
     block.style.display = "none";
     main.style.filter = "blur(0)";
+
+    startGame();
 }
 
 
@@ -229,4 +231,33 @@ function setScore(){
 function generateResult(){
     if(gameStatus === "win") setMsg("Yeah! You guessed it right..");
     else setMsg("Oops! The correct word is "+randomWord);
+}
+
+// ===== RESET GAME =====
+
+function resetGame(){
+    // RESET INPUT FIELD
+
+    inputChars[inputBoxIndex].disabled = true;
+
+    inputChars.forEach(inputChar => {
+        inputChar.value = "";
+        inputChar.classList = "input-char";
+    });
+
+    inputChars[0].classList.add("active");
+    inputChars[0].disabled = false;
+
+    
+    // RESET VARIABLES
+    
+    input="";
+    inputBoxIndex = 0;
+    randomWord="";
+    gameStatus = "start";
+    score = 0;
+    countCorrect = 0;
+    totalCorrect = 0;
+
+    startGame();
 }

@@ -98,6 +98,10 @@ header .help-btn{
     z-index: 100;
 }
 
+.pop-up h2{
+    margin-bottom: 1.5rem;
+}
+
 .pop-up ul{
     list-style: none;
     font-size: 1.35rem;
@@ -137,7 +141,6 @@ header .help-btn{
 /* ===== HELP SECTION ===== */
 
 .pop-up.help h2{
-    margin-bottom: 1.5rem;
     text-transform: uppercase;
 }
 
@@ -154,6 +157,23 @@ header .help-btn{
 .pop-up.scoreRules ul li b{
     color: #fff;
     padding: 0 5px;
+}
+
+/* ===== LEVELS SECTION ===== */
+
+.pop-up.level li{
+    cursor: pointer;
+    margin-bottom: 0.25rem;
+}
+
+.pop-up.level ul li a{
+    color: #fff;
+    padding: 2px 15px;
+}
+
+.pop-up.level p{
+    margin-bottom: 1rem;
+    font-size: 1.35rem;
 }
 
 

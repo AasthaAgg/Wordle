@@ -15,7 +15,7 @@
         <!-- ===== NAV MENU ===== -->
         <nav>
             <a onclick="startGame(); closeMenu()">Start Game</a>
-            <a onclick="setLevel(); closeMenu()">Level</a>
+            <a onclick="show(level); closeMenu()">Level</a>
             <a onclick="show(scoreRules); closeMenu()">Score</a>
             <a onclick="show(help); closeMenu()">Help</a>
         </nav>
@@ -29,6 +29,25 @@
         <!-- ===== HELP BUTTON ===== -->
         <button class="help-btn" type="submit" onclick="show(help)">?</button>
     </header>
+
+    
+    <!-- ===== LEVEL SECTION ===== -->
+
+    <section class="pop-up level">
+        <h2>Difficulties Level</h2>
+
+        <p>There are 3 different levels :</p>
+        <ul>
+            <li><a onclick="closeIt(level); resetGame(); generateRandomWord(beginner);" style="background-color: #35A535;"><u>Beginner</u></a></li>
+            <li><a onclick="closeIt(level); resetGame(); generateRandomWord(intermediate);" style="background-color: #D7BF4A;"><u>Intermediate</u></a></li>
+            <li><a onclick="closeIt(level); resetGame(); generateRandomWord(advanced);" style="background-color: #737373;"><u>Advanced</u></a></li>
+        </ul>
+
+        <p>The higher the level, the more words will be in play and the harder it will be to guess.</p>
+
+        <button onclick="closeIt(level)">Close</button>
+
+    </section>
 
 
     <!-- ===== HELP SECTION ===== -->
@@ -47,9 +66,6 @@
             <li><b>N</b> is in the word but in the wrong place.</li>
             <li><b>P</b> and <b>O</b> are not in the word.</li>
         </ul>
-
-        <!-- <p>There are 3 different levels : <b> Beginner, Intermediate</b> and <b>Advanced</b>.</p>
-        <p>The higher the level, the more words will be in play and the harder it will be to guess.</p> -->
 
         <button onclick="closeIt(help)">Close</button>
 
