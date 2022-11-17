@@ -1,0 +1,285 @@
+var help = document.querySelector(".help");
+var level = document.querySelector(".level");
+var result = document.querySelector(".result");
+var main = document.querySelector(".main");
+var inputChars = document.querySelectorAll('.input-char');
+var keyboardButtons = document.querySelectorAll('.keyboard-button');
+var scoreRules = document.querySelector(".scoreRules");
+var input="";
+var inputBoxIndex = 0;
+var randomWord="";
+var gameStatus = "start";
+var score = 0;
+var countCorrect = 0;
+var totalCorrect = 0;
+var highestScore = 0;
+var difficultyLevel = custom;
+
+startGame();
+generateRandomWord();
+
+// ===== START GAME =====
+
+function startGame(){
+    inputChars[inputBoxIndex].focus();
+}
+
+// ===== OPEN MENU =====
+
+function openMenu(){
+    document.querySelector("nav").style.width = "350px";
+    document.querySelector(".openMenu").style.display = "none";
+    document.querySelector(".closeMenu").style.display = "inline";
+}
+
+// ===== CLOSE MENU =====
+
+function closeMenu(){
+    document.querySelector("nav").style.width = "0";
+    document.querySelector(".openMenu").style.display = "inline";
+    document.querySelector(".closeMenu").style.display = "none";
+}
+
+// ===== FUNCTION TO GENERATE RANDOM WORD =====
+
+function generateRandomWord(level = difficultyLevel){
+    randomWord = level[Math.floor(Math.random() * level.length)];
+    difficultyLevel = level;
+}
+
+// ===== SHOW BLOCK =====
+
+function show(block){
+    block.style.display = "block";
+    main.style.filter = "blur(3px)";
+}
+
+// ===== CLOSE BLOCK =====
+
+function closeIt(block){
+    block.style.display = "none";
+    main.style.filter = "blur(0)";
+
+    startGame();
+}
+
+
+// ===== ON EVERY INPUT, MOVE TO NEXT INPUT BOX =====
+
+function movetoNext(){
+    inputChars[inputBoxIndex].classList.remove('active');
+    inputChars[inputBoxIndex].disabled = true;
+    inputChars[++inputBoxIndex].classList.add('active');
+    inputChars[inputBoxIndex].disabled = false;
+    inputChars[inputBoxIndex].focus();
+}
+
+
+// ===== REMOVE CHARACTER, MOVE TO PREVIOUS INPUT BOX =====
+
+function movetoPrevious(){
+    inputChars[inputBoxIndex].classList.remove('active');
+    inputChars[inputBoxIndex].disabled = true;
+    inputChars[--inputBoxIndex].classList.add('active');
+    inputChars[inputBoxIndex].disabled = false;
+    inputChars[inputBoxIndex].value="";
+    inputChars[inputBoxIndex].focus();
+}
+
+function disableInput(){
+    inputChars[inputBoxIndex].disabled = true;
+}
+
+// ===== DISPLAY MESSAGE ON SCREEN =====
+
+function setMsg(msg){
+    document.querySelector('.msg').innerHTML = msg;
+}
+
+// ===== ADD EVENT LISTENER FOR EXTERNAL KEYBOARD INPUT =====
+
+inputChars.forEach(inputChar=>{
+       
+    inputChar.addEventListener("keydown", function(event) {
+        if(event.key == "Backspace") removeLastChar();
+        else if(event.key == "Enter"){
+            setMsg("");
+            if(inputBoxIndex == 29){
+                checkInputWord();
+                if(gameStatus != "incorrectInput"){
+                    disableInput();
+                    generateResult();
+                }
+            }
+            else if(input.length == 5) checkInputWord();
+            else setMsg("You must enter 5 characters!!");
+        }
+    });
+
+    inputChar.addEventListener('input',function(){
+        if(this.value.match(/[A-z]/)) setInputChar();
+    });
+});
+
+
+// ===== ADD EVENT LISTENERS FOR EVERY ON-SCREEN KEYBOARD INPUT =====
+
+keyboardButtons.forEach(keyboardBtn => {
+    keyboardBtn.addEventListener('click',function(){
+        if(this.value.match(/del/)) removeLastChar();
+        else if(this.value.match(/enter/)){
+            setMsg("");
+            if(inputBoxIndex == 29){
+                checkInputWord();
+                if(gameStatus != "incorrectInput"){
+                    disableInput();
+                    generateResult();
+                }
+            }
+            else if(input.length == 5) checkInputWord();
+            else setMsg("You must enter 5 characters!!");
+        }
+        else if(this.value.match(/[a-z]/)){
+            document.querySelector('.input-char.active').value = this.value;
+            setInputChar();
+        }
+    });
+});
+
+
+// ===== SET INPUT CHARACTER =====
+
+function setInputChar(){
+    setMsg("");
+
+    input += document.querySelector('.input-char.active').value.toUpperCase();
+    
+    if(input.length != 5) movetoNext();
+}
+
+
+// ===== REMOVE LAST CHARACTER =====
+
+function removeLastChar(){
+    setMsg("");
+
+    if(input.length==5){
+        input = input.substring(0,input.length-1);
+        inputChars[inputBoxIndex].value="";
+        inputChars[inputBoxIndex].focus();
+
+    }
+    else if(input.length != 0){
+        input = input.substring(0,input.length-1);
+        movetoPrevious();
+    }
+    else{
+        inputChars[inputBoxIndex].focus();
+    }
+}
+
+
+// ===== PROCESS INPUT WORD =====
+
+function checkInputWord(){
+    if(fullList.includes(input)){
+        for(var i=0; i<5; i++){
+            if(input.charAt(i) === randomWord.charAt(i)){
+                inputChars[inputBoxIndex+i-4].classList.add('green');
+                countCorrect += 1;
+            }
+            else if(randomWord.includes(input.charAt(i))){
+                inputChars[inputBoxIndex+i-4].classList.add('yellow');
+                score += 5;
+            }
+            else{
+                inputChars[inputBoxIndex+i-4].classList.add('grey');
+                score -= 3;
+            }
+        }
+
+        if(countCorrect > totalCorrect){
+            score += (countCorrect - totalCorrect)*10;
+            totalCorrect = countCorrect;
+            countCorrect = 0;
+        }
+
+        setScore();
+    
+        if(input === randomWord){
+            gameStatus = "win";
+            inputChars[inputBoxIndex].disabled = true;
+            generateResult();
+        }else{
+            if(inputBoxIndex == 29) gameStatus = "over";
+        }
+    
+        input = "";
+        if(inputBoxIndex != 29 && gameStatus != "win") movetoNext();
+    }
+    else{
+        setMsg("Enter a valid word..");
+        gameStatus = "incorrectInput";
+    }
+
+}
+
+// ===== SET SCORE =====
+
+function setScore(){
+    document.querySelector(".score").innerHTML = score;
+}
+
+// ===== CREATE RESULT =====
+
+function generateResult(){
+    if(highestScore < score){
+        highestScore = score;
+        document.querySelector(".resultMsg").innerHTML = "Congratulations!! You score the highest..";
+        document.querySelector(".resultImg").src = "highestScore.png";
+    }
+    else if(gameStatus === "win"){
+        document.querySelector(".resultMsg").innerHTML = "Yeah! You guessed it right..";
+        document.querySelector(".resultImg").src = "win.png";
+    }
+    else{
+        document.querySelector(".resultMsg").innerHTML = "Oops! The correct word is "+randomWord;
+        document.querySelector(".resultImg").src = "lose.png";
+    }
+
+    document.querySelector(".resultScore").innerHTML = "Score : "+score;
+    document.querySelector(".highestScore").innerHTML = "Highest Score : "+highestScore;
+
+    show(result);
+}
+
+// ===== RESET GAME =====
+
+function resetGame(){
+    // RESET INPUT FIELD
+
+    inputChars[inputBoxIndex].disabled = true;
+
+    inputChars.forEach(inputChar => {
+        inputChar.value = "";
+        inputChar.classList = "input-char";
+    });
+
+    inputChars[0].classList.add("active");
+    inputChars[0].disabled = false;
+
+    
+    // RESET VARIABLES
+
+    input="";
+    inputBoxIndex = 0;
+    randomWord="";
+    gameStatus = "start";
+    score = 0;
+    countCorrect = 0;
+    totalCorrect = 0;
+
+    setMsg("Start guessing!");
+    setScore();
+    startGame();
+}
