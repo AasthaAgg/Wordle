@@ -14,10 +14,11 @@
     <header>
         <!-- ===== NAV MENU ===== -->
         <nav>
-            <a onclick="startGame(); closeMenu()">Start Game</a>
+            <a onclick="closeMenu(); resetGame(); generateRandomWord();">New Game</a>
             <a onclick="show(level); closeMenu()">Level</a>
             <a onclick="show(scoreRules); closeMenu()">Score</a>
             <a onclick="show(help); closeMenu()">Help</a>
+            <a onclick="closeMenu(); resetGame(); disableInput(); setMsg('');">Exit</a>
         </nav>
 
         <!-- ==== MENU BUTTONS ===== -->
@@ -59,7 +60,7 @@
         <p>Only valid words are allowed. Hit enter to submit your guess.</p>
         <p>With each guess, the color of the tiles will change to show you how close your guess is to the word.</p>
 
-        <img src="word.png" alt="">
+        <img src="images/word.png" alt="">
 
         <ul>
             <li><b>S</b> is in the word and in the correct place.</li>
@@ -77,12 +78,13 @@
     <section class="pop-up scoreRules">
         <h1>How scores are calculated?</h1>
 
-        <img src="word.png" alt="">
+        <img src="images/word.png" alt="">
 
         <ul>
             <li><b style="background-color: #35A535;">+10</b> for every correct letter, in the correct place.</li>
             <li><b style="background-color: #D7BF4A;">+5</b> for correct letters, in the wrong place.</li>
             <li><b style="background-color: #737373;">-3</b> for letters not in the word.</li>
+            <li><b style="background-color: rgb(23, 21, 21);">-20</b> if you give up early.</li>
         </ul>
 
         <button onclick="closeIt(scoreRules)">Close</button>
@@ -109,7 +111,7 @@
 
         <div class="main-head">
             <div class="scoreboard">Score: <span class="score">0</span></div>
-            <button onclick="giveUp()">Give Up</button>
+            <button class="giveUp" onclick="giveUp()">Give Up</button>
         </div>
 
         <div class="msg">Start guessing!</div>

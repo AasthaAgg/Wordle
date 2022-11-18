@@ -12,6 +12,8 @@ var gameStatus = "start";
 var score = 0;
 var countCorrect = 0;
 var totalCorrect = 0;
+var countPartialCorrect = 0;
+var totalPartialCorrect = 0;
 var highestScore = 0;
 var difficultyLevel = custom;
 
@@ -190,7 +192,7 @@ function checkInputWord(){
             }
             else if(randomWord.includes(input.charAt(i))){
                 inputChars[inputBoxIndex+i-4].classList.add('yellow');
-                score += 5;
+                countPartialCorrect += 1;
             }
             else{
                 inputChars[inputBoxIndex+i-4].classList.add('grey');
@@ -202,6 +204,12 @@ function checkInputWord(){
             score += (countCorrect - totalCorrect)*10;
             totalCorrect = countCorrect;
             countCorrect = 0;
+        }
+
+        if(countPartialCorrect > totalPartialCorrect){
+            score += (countPartialCorrect - totalPartialCorrect)*5;
+            totalPartialCorrect = countPartialCorrect;
+            countPartialCorrect = 0;
         }
 
         setScore();
@@ -236,21 +244,29 @@ function generateResult(){
     if(highestScore < score){
         highestScore = score;
         document.querySelector(".resultMsg").innerHTML = "Congratulations!! You score the highest..";
-        document.querySelector(".resultImg").src = "highestScore.png";
+        document.querySelector(".resultImg").src = "images/highestScore.png";
     }
     else if(gameStatus === "win"){
         document.querySelector(".resultMsg").innerHTML = "Yeah! You guessed it right..";
-        document.querySelector(".resultImg").src = "win.png";
+        document.querySelector(".resultImg").src = "images/win.png";
     }
     else{
         document.querySelector(".resultMsg").innerHTML = "Oops! The correct word is "+randomWord;
-        document.querySelector(".resultImg").src = "lose.png";
+        document.querySelector(".resultImg").src = "images/lose.png";
     }
 
     document.querySelector(".resultScore").innerHTML = "Score : "+score;
     document.querySelector(".highestScore").innerHTML = "Highest Score : "+highestScore;
 
     show(result);
+}
+
+
+// ==== GIVE UP =====
+
+function giveUp(){
+    score -= 20;
+    generateResult();
 }
 
 // ===== RESET GAME =====

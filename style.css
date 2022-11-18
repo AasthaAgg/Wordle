@@ -48,15 +48,26 @@ header nav a{
     transition: 0.3s ease;
 }
 
+header nav a:hover{
+    color: yellow;
+    transform: scale(1.1);
+}
+
 header .menuBtn{
     height: 2.5rem;
     width: 2.5rem;
     font-size: 1.5rem;
     font-weight: 700;
     cursor: pointer;
+    transition: 0.3s ease;
+}
+
+header .menuBtn:hover{
+    transform: scale(1.05);
 }
 
 header .closeMenu{
+    transition: 0.3s ease;
     display: none;
 }
 
@@ -76,6 +87,11 @@ header .help-btn{
     border-style: outset;
     box-shadow: 5px 5px 10px rgba(32, 31, 31, 0.489);
     cursor: pointer;
+    transition: 0.3s ease;
+}
+
+header .help-btn:hover{
+    transform: scale(1.1);
 }
 
 
@@ -96,6 +112,7 @@ header .help-btn{
     background-color: white;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.687);
     z-index: 100;
+    transition: 0.3s ease;
 }
 
 .pop-up h2{
@@ -125,7 +142,7 @@ header .help-btn{
     border: solid 2px rgba(48, 46, 46, 0.855);
     border-radius: 4px;
     box-shadow: 2px 3px rgba(99, 95, 95, 0.618);
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .pop-up button:hover{
@@ -141,8 +158,8 @@ header .help-btn{
 /* ===== RESULT ===== */
 
 .pop-up.result img{
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
 }
 
 .pop-up.result p{
@@ -182,11 +199,16 @@ header .help-btn{
 .pop-up.level li{
     cursor: pointer;
     margin-bottom: 0.25rem;
+    transition: 0.5s ease;
 }
 
 .pop-up.level ul li a{
     color: #fff;
     padding: 2px 15px;
+}
+
+.pop-up.level ul li:hover{
+    transform: scale(1.1);
 }
 
 .pop-up.level p{
@@ -226,6 +248,26 @@ header .help-btn{
     font-weight: 800;
 }
 
+.main-head button{
+    padding: 2px 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(15, 15, 15, 0.807);
+    cursor: pointer;
+    border: solid 2px rgba(48, 46, 46, 0.855);
+    border-radius: 4px;
+    box-shadow: 2px 3px rgba(99, 95, 95, 0.618);
+    transition: 0.3s ease;
+}
+
+.main-head button:hover{
+    transform: scale(1.02);
+}
+
+.main-head button:active{
+    transform: translate(1px,1px);
+    box-shadow: 0 1px rgba(99, 95, 95, 0.618);
+}
 
 /* ==== MESSAGE ===== */
 
@@ -303,7 +345,7 @@ header .help-btn{
     border: solid 2px rgba(48, 46, 46, 0.855);
     border-radius: 4px;
     box-shadow: 2px 3px rgba(99, 95, 95, 0.618);
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .keyboard-button:hover{
@@ -347,7 +389,6 @@ header .help-btn{
     }
 
     header .help-btn{
-        /* display: none; */
         height: 2.5rem;
         width: 2.5rem;
         font-size: 1.5rem;
@@ -369,6 +410,10 @@ header .help-btn{
 
     .main-head .scoreboard .score{
         font-size: 1.25rem;
+    }
+
+    .main-head button{
+        font-size: 0.8rem;
     }
 
     /* ===== MESSAGE ===== */
@@ -415,6 +460,21 @@ header .help-btn{
 
     .pop-up.scoreRules h1{
         margin-bottom: 1rem;
+    }
+
+    .pop-up.result p{
+        font-size: 1.15rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .pop-up.result img{
+        height: 100px;
+        width: 100px;
+    }
+
+    .pop-up.result button{
+        margin-top: 0.5rem;
+        padding: 4px 18px;
     }
 
     /* ===== INPUT AREA ===== */
