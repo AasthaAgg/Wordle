@@ -59,11 +59,13 @@ header .menuBtn{
     font-size: 1.5rem;
     font-weight: 700;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: 0.5s ease;
 }
 
 header .menuBtn:hover{
-    transform: scale(1.05);
+    transform: scale(1.15);
+    color: yellow;
+    background-color: #121111;
 }
 
 header .closeMenu{
@@ -71,9 +73,9 @@ header .closeMenu{
     display: none;
 }
 
-header h1{
-    cursor: pointer;
-    color: white;
+header img{
+    height: 46px;
+    width: auto;
 }
 
 header .help-btn{
@@ -92,6 +94,8 @@ header .help-btn{
 
 header .help-btn:hover{
     transform: scale(1.1);
+    color: yellow;
+    background-color: #121111;
 }
 
 
@@ -365,11 +369,12 @@ header .help-btn:hover{
     /* ===== HEADER ===== */
     
     header{
-        padding: 1rem;
+        padding: 1rem 0.5rem;
     }
 
-    header h1{
-        font-size: 1.5rem;
+    header img{
+        height: 32px;
+        width: auto;
     }
 
     header nav{
@@ -389,8 +394,8 @@ header .help-btn:hover{
     }
 
     header .help-btn{
-        height: 2.5rem;
-        width: 2.5rem;
+        height: 2.35rem;
+        width: 2.35rem;
         font-size: 1.5rem;
     }
 
