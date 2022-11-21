@@ -1,21 +1,21 @@
-var help = document.querySelector(".help");
-var level = document.querySelector(".level");
-var result = document.querySelector(".result");
-var main = document.querySelector(".main");
-var inputChars = document.querySelectorAll('.input-char');
-var keyboardButtons = document.querySelectorAll('.keyboard-button');
-var scoreRules = document.querySelector(".scoreRules");
-var input="";
-var inputBoxIndex = 0;
-var randomWord="";
-var gameStatus = "start";
-var score = 0;
-var countCorrect = 0;
-var totalCorrect = 0;
-var countPartialCorrect = 0;
-var totalPartialCorrect = 0;
-var highestScore = 0;
-var difficultyLevel = custom;
+const help = document.querySelector(".help");
+const level = document.querySelector(".level");
+const result = document.querySelector(".result");
+const main = document.querySelector(".main");
+const inputChars = document.querySelectorAll('.input-char');
+const keyboardButtons = document.querySelectorAll('.keyboard-button');
+const scoreRules = document.querySelector(".scoreRules");
+let input="";
+let inputBoxIndex = 0;
+let randomWord="";
+let gameStatus = "start";
+let score = 0;
+let countCorrect = 0;
+let totalCorrect = 0;
+let countPartialCorrect = 0;
+let totalPartialCorrect = 0;
+let highestScore = 0;
+let difficultyLevel = custom;
 
 startGame();
 generateRandomWord();
@@ -29,7 +29,7 @@ function startGame(){
 // ===== OPEN MENU =====
 
 function openMenu(){
-    document.querySelector("nav").style.width = "350px";
+    document.querySelector("nav").style.width = "250px";
     document.querySelector(".openMenu").style.display = "none";
     document.querySelector(".closeMenu").style.display = "inline";
 }
@@ -185,7 +185,7 @@ function removeLastChar(){
 
 function checkInputWord(){
     if(fullList.includes(input)){
-        for(var i=0; i<5; i++){
+        for(let i=0; i<5; i++){
             if(input.charAt(i) === randomWord.charAt(i)){
                 inputChars[inputBoxIndex+i-4].classList.add('green');
                 countCorrect += 1;
@@ -241,14 +241,16 @@ function setScore(){
 // ===== CREATE RESULT =====
 
 function generateResult(){
-    if(highestScore < score){
-        highestScore = score;
-        document.querySelector(".resultMsg").innerHTML = "Congratulations!! You score the highest..";
-        document.querySelector(".resultImg").src = "images/highestScore.png";
-    }
-    else if(gameStatus === "win"){
-        document.querySelector(".resultMsg").innerHTML = "Yeah! You guessed it right..";
-        document.querySelector(".resultImg").src = "images/win.png";
+    if(gameStatus === "win"){
+        if(highestScore < score){
+            highestScore = score;
+            document.querySelector(".resultMsg").innerHTML = "Congratulations!! You score the highest..";
+            document.querySelector(".resultImg").src = "images/highestScore.png";
+        }
+        else{
+            document.querySelector(".resultMsg").innerHTML = "Yeah! You guessed it right..";
+            document.querySelector(".resultImg").src = "images/win.png";
+        }
     }
     else{
         document.querySelector(".resultMsg").innerHTML = "Oops! The correct word is "+randomWord;
@@ -265,6 +267,7 @@ function generateResult(){
 // ==== GIVE UP =====
 
 function giveUp(){
+    gameStatus = "giveUp";
     score -= 20;
     generateResult();
 }
