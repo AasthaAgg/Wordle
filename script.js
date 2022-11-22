@@ -52,13 +52,31 @@ function generateRandomWord(level = difficultyLevel){
 // ===== SHOW BLOCK =====
 
 function show(block){
+    block.classList.add('active');
     block.style.display = "block";
     main.style.filter = "blur(3px)";
+    
+    document.addEventListener("click", clickAnywhere);
 }
+
+
+// ===== CLICK ANYWHERE TO CLOSE OPENED POP-UP BOX ====
+
+function clickAnywhere(event){
+    if((event.target.closest(".menuBtn")) || ((event.target.closest(".main")) && !(event.target.closest(".giveUp")) && !(event.target.closest(".pop-up.active")))){
+        closeIt();
+    }
+}
+
 
 // ===== CLOSE BLOCK =====
 
-function closeIt(block){
+function closeIt(){
+    document.removeEventListener("click", clickAnywhere);
+
+    const block = document.querySelector(".pop-up.active");
+    
+    block.classList.remove('active');
     block.style.display = "none";
     main.style.filter = "blur(0)";
 
