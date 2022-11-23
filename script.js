@@ -32,11 +32,23 @@ function openMenu(){
     document.querySelector("nav").style.width = "250px";
     document.querySelector(".openMenu").style.display = "none";
     document.querySelector(".closeMenu").style.display = "inline";
+
+    document.addEventListener("click", clickOutsideMenu);
+}
+
+// ===== CLICK OUTSIDE MENU TO CLOSE MENU =====
+
+function clickOutsideMenu(event){
+    if(!event.target.closest(".navMenu") && !event.target.closest(".openMenu")){
+        closeMenu();
+    }
 }
 
 // ===== CLOSE MENU =====
 
 function closeMenu(){
+    document.removeEventListener("click", clickOutsideMenu);
+
     document.querySelector("nav").style.width = "0";
     document.querySelector(".openMenu").style.display = "inline";
     document.querySelector(".closeMenu").style.display = "none";
