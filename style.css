@@ -56,10 +56,12 @@ header nav a:hover{
 header .menuBtn{
     height: 2.5rem;
     width: 2.5rem;
-    font-size: 1.5rem;
+    font-size: 1.65rem;
     font-weight: 700;
     cursor: pointer;
     transition: 0.5s ease;
+    background-color: #383636;
+    color: white;
 }
 
 header .menuBtn:hover{
@@ -83,7 +85,8 @@ header .help-btn{
     width: 3rem;
     font-size: 2rem;
     font-weight: 700;
-    color: black;
+    background-color: #383636;
+    color: white;
     border-radius: 50%;
     border: solid 4px rgb(34, 33, 33);
     border-style: outset;
@@ -225,9 +228,12 @@ header .help-btn:hover{
 
 .main{
     width: 100%;
+    height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #ffffff;
+    background-image: url("https://transparenttextures.com/patterns/mirrored-squares.png");
 }
 
 .main-head{
@@ -303,6 +309,7 @@ header .help-btn:hover{
     font-size: 2.25rem;
     font-weight: 500;
     color: rgb(80, 73, 73);
+    background-color: white;
     text-transform: uppercase;
 }
 
@@ -378,7 +385,7 @@ header .help-btn:hover{
     }
 
     header nav{
-        top: 72px;
+        top: 68px;
     }
 
     header nav a{
@@ -401,6 +408,7 @@ header .help-btn:hover{
 
     .main{
         min-width: 320px;
+        height: calc(100vh - 60px);
     }
 
     .main-head{
