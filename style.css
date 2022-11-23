@@ -109,9 +109,9 @@ header .help-btn:hover{
     max-width: calc(100% - 2rem);
     width: 700px;
     position: absolute;
-    top: 80px;
+    top: 50%;
     left: calc(50% - 1rem);
-    transform: translateX(-50%);
+    transform: translate(-50%, -60%);
     padding: 2rem 3rem;
     margin: 1rem;
     font-size: 1.25rem;
@@ -188,10 +188,6 @@ header .help-btn:hover{
 
 /* ===== SCORE RULES SECTION ===== */
 
-.pop-up.scoreRules{
-    top: 120px;
-}
-
 .pop-up.scoreRules h1{
     margin-bottom: 1.5rem;
 }
@@ -220,7 +216,6 @@ header .help-btn:hover{
 
 .pop-up.level p{
     margin-bottom: 1rem;
-    font-size: 1.35rem;
 }
 
 
@@ -444,45 +439,49 @@ header .help-btn:hover{
         margin: 10px;
         width: calc(100% - 20px);
         padding: 2rem 1rem;
-        top: 60px;
         left: calc(50% - 10px);
-        font-size: 1.05rem;
-        line-height: 1.5rem;
+        font-size: 0.9rem;
+        line-height: 1.25rem;
     }
 
-    .pop-up ul{
+    .pop-up h2{
         font-size: 1.15rem;
         margin-bottom: 1rem;
     }
+
+    .pop-up ul{
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .pop-up p{
+        font-size: 0.9rem;
+    }
     
     .pop-up img{
-        max-width: 15rem;
+        max-width: 10rem;
     }
 
     .pop-up button{
-        font-size: 1.05rem;
+        font-size: 0.8rem;
+        padding: 3px 18px;
     }
 
-    /* ===== HELP SECTION ===== */
-
-    .pop-up.help h2{
-        margin-bottom: 1rem;
-    }
-    
     /* ===== SCORE RULES ===== */
 
     .pop-up.scoreRules h1{
+        font-size: 1.15rem;
         margin-bottom: 1rem;
     }
 
     .pop-up.result p{
-        font-size: 1.15rem;
-        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
     }
 
     .pop-up.result img{
-        height: 100px;
-        width: 100px;
+        height: 80px;
+        width: 80px;
     }
 
     .pop-up.result button{
