@@ -32,6 +32,7 @@ function openMenu(){
     document.querySelector("nav").style.width = "250px";
     document.querySelector(".openMenu").style.display = "none";
     document.querySelector(".closeMenu").style.display = "inline";
+    main.style.filter = "blur(3px)";
 
     document.addEventListener("click", clickOutsideMenu);
 }
@@ -52,6 +53,7 @@ function closeMenu(){
     document.querySelector("nav").style.width = "0";
     document.querySelector(".openMenu").style.display = "inline";
     document.querySelector(".closeMenu").style.display = "none";
+    main.style.filter = "blur(0px)";
 }
 
 // ===== FUNCTION TO GENERATE RANDOM WORD =====
