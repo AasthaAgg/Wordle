@@ -92,6 +92,11 @@ function closeIt(){
     block.style.display = "none";
     main.style.filter = "blur(0)";
 
+    if(block.classList.contains('result')){
+        resetGame();
+        generateRandomWord();
+    }
+
     startGame();
 }
 

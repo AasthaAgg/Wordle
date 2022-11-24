@@ -14,7 +14,7 @@
 
     <header>
         <!-- ===== NAV MENU ===== -->
-        <nav>
+        <nav class="navMenu">
             <a onclick="closeMenu(); resetGame(); generateRandomWord();">New Game</a>
             <a onclick="show(level); closeMenu()">Level</a>
             <a onclick="show(scoreRules); closeMenu()">Score</a>
@@ -40,9 +40,9 @@
 
         <p>There are 3 different levels :</p>
         <ul>
-            <li><a onclick="closeIt(level); resetGame(); generateRandomWord(beginner);" style="background-color: #35A535;"><u>Beginner</u></a></li>
-            <li><a onclick="closeIt(level); resetGame(); generateRandomWord(intermediate);" style="background-color: #D7BF4A;"><u>Intermediate</u></a></li>
-            <li><a onclick="closeIt(level); resetGame(); generateRandomWord(advanced);" style="background-color: #737373;"><u>Advanced</u></a></li>
+            <li><a onclick="closeIt(); resetGame(); generateRandomWord(beginner);" style="background-color: #35A535;"><u>Beginner</u></a></li>
+            <li><a onclick="closeIt(); resetGame(); generateRandomWord(intermediate);" style="background-color: #D7BF4A;"><u>Intermediate</u></a></li>
+            <li><a onclick="closeIt(); resetGame(); generateRandomWord(advanced);" style="background-color: #737373;"><u>Advanced</u></a></li>
         </ul>
 
         <p>The higher the level, the more words will be in play and the harder it will be to guess.</p>
@@ -101,7 +101,7 @@
         <p class="resultScore"></p>
         <p class="highestScore"></p>
 
-        <button onclick="closeIt(result); resetGame(); generateRandomWord()">Play again!!</button>
+        <button onclick="closeIt();">Play again!!</button>
 
     </section>
 
