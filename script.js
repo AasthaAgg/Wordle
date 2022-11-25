@@ -53,6 +53,10 @@ function closeMenu(){
     document.querySelector("nav").style.width = "0";
     document.querySelector(".openMenu").style.display = "inline";
     document.querySelector(".closeMenu").style.display = "none";
+
+    document.querySelector('.showLevels').style.display = "none";
+    document.querySelector('.fa-caret-down').style.transform = "rotate(360deg)";
+
     main.style.filter = "blur(0px)";
 }
 
