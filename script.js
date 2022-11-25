@@ -77,8 +77,10 @@ function show(block){
 // ===== CLICK ANYWHERE TO CLOSE OPENED POP-UP BOX ====
 
 function clickAnywhere(event){
-    if((event.target.closest(".menuBtn")) || ((event.target.closest(".main")) && !(event.target.closest(".giveUp")) && !(event.target.closest(".pop-up.active")))){
+    if(((event.target.closest(".main")) && !(event.target.closest(".giveUp")) && !(event.target.closest(".pop-up.active")))) closeIt();
+    else if(event.target.closest(".menuBtn")){
         closeIt();
+        main.style.filter = "blur(3px)";
     }
 }
 
@@ -102,6 +104,17 @@ function closeIt(){
     startGame();
 }
 
+
+function showLevels(){
+
+    if(document.querySelector('.showLevels').style.display === "block"){
+        document.querySelector('.showLevels').style.display = "none";
+        document.querySelector('.fa-caret-down').style.transform = "rotate(360deg)";
+    }else{
+        document.querySelector('.showLevels').style.display = "block";
+        document.querySelector('.fa-caret-down').style.transform = "rotate(180deg)";
+    }
+}
 
 // ===== ON EVERY INPUT, MOVE TO NEXT INPUT BOX =====
 

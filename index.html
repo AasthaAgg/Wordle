@@ -7,6 +7,7 @@
     <title>Wordle</title>
     <link rel = "icon" href = "images/logo.png" type = "image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
 
@@ -16,7 +17,13 @@
         <!-- ===== NAV MENU ===== -->
         <nav class="navMenu">
             <a onclick="closeMenu(); resetGame(); generateRandomWord();">New Game</a>
-            <a onclick="closeMenu(); show(level);">Level</a>
+            <a onclick="showLevels();">Levels<span class="fas fa-caret-down"></span>
+            </a>
+            <ul class="showLevels">
+                <li><a onclick="closeMenu(); resetGame(); generateRandomWord(beginner);">Beginner</a></li>
+                <li><a onclick="closeMenu(); resetGame(); generateRandomWord(intermediate);">Intermediate</a></li>
+                <li><a onclick="closeMenu(); resetGame(); generateRandomWord(advanced);">Advanced</a></li>
+            </ul>
             <a onclick="closeMenu(); show(scoreRules);">Score</a>
             <a onclick="closeMenu(); show(help);">Help</a>
             <a onclick="closeMenu(); resetGame(); disableInput(); setMsg('');">Exit</a>
@@ -31,25 +38,6 @@
         <!-- ===== HELP BUTTON ===== -->
         <button class="help-btn" type="submit" onclick="show(help)">?</button>
     </header>
-
-    
-    <!-- ===== LEVEL SECTION ===== -->
-
-    <section class="pop-up level">
-        <h2>Difficulties Level</h2>
-
-        <p>There are 3 different levels :</p>
-        <ul>
-            <li><a onclick="closeIt(); resetGame(); generateRandomWord(beginner);" style="background-color: #35A535;"><u>Beginner</u></a></li>
-            <li><a onclick="closeIt(); resetGame(); generateRandomWord(intermediate);" style="background-color: #D7BF4A;"><u>Intermediate</u></a></li>
-            <li><a onclick="closeIt(); resetGame(); generateRandomWord(advanced);" style="background-color: #737373;"><u>Advanced</u></a></li>
-        </ul>
-
-        <p>The higher the level, the more words will be in play and the harder it will be to guess.</p>
-
-        <button onclick="closeIt(level)">Close</button>
-
-    </section>
 
 
     <!-- ===== HELP SECTION ===== -->
@@ -69,7 +57,7 @@
             <li><b>P</b> and <b>O</b> are not in the word.</li>
         </ul>
 
-        <button onclick="closeIt(help)">Close</button>
+        <button onclick="closeIt()">Close</button>
 
     </section>
 
@@ -88,7 +76,7 @@
             <li><b style="background-color: rgb(23, 21, 21);">-20</b> if you give up early.</li>
         </ul>
 
-        <button onclick="closeIt(scoreRules)">Close</button>
+        <button onclick="closeIt()">Close</button>
 
     </section>
 
