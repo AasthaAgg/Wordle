@@ -335,30 +335,6 @@ header .help-btn:hover{
     text-transform: uppercase;
 }
 
-.input-char.green{
-    background-color: #35A535;
-    color: white;
-    border-color: #339433bd;
-    border-style: outset;
-    text-shadow:  2px 2px #383636;
-}
-
-.input-char.yellow{
-    background-color: #D7BF4A;
-    color: white;
-    border-color: #cab54bce;
-    border-style: outset;
-    text-shadow:  2px 2px #383636;
-}
-
-.input-char.grey{
-    background-color: #737373;
-    color: white;
-    border-color: #5f5f5fc0;
-    border-style: outset;
-    text-shadow:  2px 2px #383636;
-}
-
 
 /* ===== KEYBOARD ===== */
 
@@ -388,6 +364,33 @@ header .help-btn:hover{
 .keyboard-button:active{
     transform: translate(1px,1px);
     box-shadow: 0 1px rgba(99, 95, 95, 0.618);
+}
+
+
+/* ===== KEYS COLOR ===== */
+
+.green{
+    background-color: #35A535;
+    color: white;
+    border-color: #339433bd;
+    border-style: outset;
+    text-shadow: 2px 2px #383636;
+}
+
+.yellow{
+    background-color: #D7BF4A;
+    color: white;
+    border-color: #cab54bce;
+    border-style: outset;
+    text-shadow: 2px 2px #383636;
+}
+
+.grey{
+    background-color: #737373;
+    color: white;
+    border-color: #5f5f5fc0;
+    border-style: outset;
+    text-shadow: 2px 2px #383636;
 }
 
 

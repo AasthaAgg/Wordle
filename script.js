@@ -239,20 +239,54 @@ function removeLastChar(){
 
 function checkInputWord(){
     if(fullList.includes(input)){
+
+        // checking correctness of each character of the input word
         for(let i=0; i<5; i++){
+            
+            // setting background color of input field
             if(input.charAt(i) === randomWord.charAt(i)){
-                inputChars[inputBoxIndex+i-4].classList.add('green');
+                keyColor = 'green';
                 countCorrect += 1;
             }
             else if(randomWord.includes(input.charAt(i))){
-                inputChars[inputBoxIndex+i-4].classList.add('yellow');
+                keyColor = 'yellow';
                 countPartialCorrect += 1;
             }
             else{
-                inputChars[inputBoxIndex+i-4].classList.add('grey');
+                keyColor = 'grey';
                 score -= 3;
             }
+
+            inputChars[inputBoxIndex+i-4].classList.add(keyColor);
+
+
+            // setting background color of keyboard btns
+            keyboardButtons.forEach(keyboardBtn => {
+                if(input.charAt(i) === keyboardBtn.value){
+                    if(keyboardBtn.classList.contains('visited')){
+                        if(keyColor=='green'){
+                            if(keyboardBtn.classList.contains('yellow')){
+                                keyboardBtn.classList.add(keyColor);
+                                keyboardBtn.classList.remove('yellow');
+                            }
+                            else if(keyboardBtn.classList.contains('grey')){
+                                keyboardBtn.classList.add(keyColor);
+                                keyboardBtn.classList.remove('grey');
+                            }
+                        }
+                        else if(keyColor=='yellow' && keyboardBtn.classList.contains('grey')){
+                            keyboardBtn.classList.add(keyColor);
+                            keyboardBtn.classList.remove('grey');
+                        }
+                    }
+                    else{
+                        keyboardBtn.classList.add(keyColor, "visited");
+                    }
+                }
+            });
         }
+
+        // setting score
 
         if(countCorrect > totalCorrect){
             score += (countCorrect - totalCorrect)*10;
@@ -341,6 +375,12 @@ function resetGame(){
     inputChars[0].classList.add("active");
     inputChars[0].disabled = false;
 
+
+    // RESET KEYBOARD BUTTONS
+
+    keyboardButtons.forEach(keyboardBtn => {
+        keyboardBtn.classList = 'keyboard-button';
+    });
     
     // RESET VARIABLES
 
