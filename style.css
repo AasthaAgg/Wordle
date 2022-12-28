@@ -255,7 +255,8 @@ header .help-btn:hover{
     flex-direction: column;
     align-items: center;
     background-color: #ffffff;
-    background-image: url("https://transparenttextures.com/patterns/mirrored-squares.png");
+    background-image: url(images/bg.png);
+    background-size: cover;
 }
 
 .main-head{
