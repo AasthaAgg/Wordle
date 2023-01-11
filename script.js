@@ -74,7 +74,9 @@ function show(block){
     block.style.display = "block";
     main.style.filter = "blur(3px)";
     
-    document.addEventListener("click", clickAnywhere);
+    if(!block.classList.contains('result')){
+        document.addEventListener("click", clickAnywhere);
+    }
 }
 
 
@@ -195,7 +197,7 @@ keyboardButtons.forEach(keyboardBtn => {
             else if(input.length == 5) checkInputWord();
             else setMsg("You must enter 5 characters!!");
         }
-        else if(this.value.match(/[a-z]/)){
+        else if(this.value.match(/[A-z]/)){
             document.querySelector('.input-char.active').value = this.value;
             setInputChar();
         }
